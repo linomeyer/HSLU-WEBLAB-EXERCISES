@@ -13,5 +13,5 @@ const admin = {
   __proto__: user,
 };
 admin.pause();
-console.log(admin.isPausing); //? Wieso?
-console.log(user.isPausing); //? Wieso?
+console.log(admin.isPausing); // this.isPausing wird beim Aufruf von pause() erstellt für admin
+console.log(user.isPausing); // this.isPausing existiert gar nicht auf user, da pause() nie aufgerufen wurde

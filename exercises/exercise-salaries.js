@@ -9,7 +9,10 @@ const salaries = {
 
 // eslint-disable-next-line no-unused-vars, no-shadow
 function sumSalaries(salaries) {
-  // TBD
+  return Object.values(salaries).reduce(
+    (sum, previousValue) => sum + previousValue,
+    0,
+  );
 }
 
 assert.equal(346000, sumSalaries(salaries));

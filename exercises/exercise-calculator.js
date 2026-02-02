@@ -1,7 +1,18 @@
 import { strict as assert } from 'assert';
 
 let calculator = {
-  // TBD
+  read(...numbers) {
+    this.numbers = numbers.map((x) => Number(x));
+    if (this.numbers.some((x) => isNaN(x))) {
+      throw new TypeError();
+    }
+  },
+  sum() {
+    return this.numbers.reduce((sum, number) => sum + number, 0);
+  },
+  mul() {
+    return this.numbers.reduce((sum, number) => sum * number, 1);
+  },
 };
 
 // 1. Teil

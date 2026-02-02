@@ -42,6 +42,9 @@ assert.deepEqual(menu, {
  */
 // eslint-disable-next-line no-unused-vars, no-shadow
 function multiProperties(menu) {
-  // TBD implement multiProperties here
-  console.log('Implement multiProperties here 💻');
+  for (let property in menu) {
+    if (typeof menu[property] === 'number') {
+      menu[property] *= 2;
+    }
+  }
 }

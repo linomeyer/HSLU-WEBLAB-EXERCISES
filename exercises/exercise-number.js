@@ -1,8 +1,22 @@
 import { strict as assert } from 'assert';
 
-// eslint-disable-next-line no-unused-vars
 function findNumber(a, b, c) {
-  //TBD
+  if (![a, b, c].every((x) => Number.isInteger(x))) {
+    return null;
+  }
+  if ((a === b) === c) {
+    return 'All numbers are equal';
+  }
+  if (a === b) {
+    return c;
+  }
+  if (b === c) {
+    return a;
+  }
+  if (a === c) {
+    return b;
+  }
+  return 'Not any numbers are equal';
 }
 
 // Aufgabe 1
