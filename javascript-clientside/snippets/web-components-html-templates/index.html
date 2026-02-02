@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      @import url('https://unpkg.com/@picocss/pico@1.*/css/pico.min.css');
+    </style>
+  </head>
+  <body>
+    <h1>Web Component HTML Templates Example 🤙</h1>
+
+    <template id="technology-details">
+      <style>
+        @import 'https://unpkg.com/@picocss/pico@1.*/css/pico.min.css';
+      </style>
+      <article>
+        <header>
+          <slot name="technology-title">Technology Title</slot>
+        </header>
+        <slot name="technology-description">Technology Description</slot>
+        <footer>
+          <slot name="technology-learn-more">Learn More</slot>
+        </footer>
+      </article>
+    </template>
+
+    <script>
+      customElements.define(
+        'techradar-technology-details',
+        class extends HTMLElement {
+          constructor() {
+            super();
+
+            const template = document.getElementById('technology-details');
+            const templateContent = template.content;
+
+            const shadowRoot = this.attachShadow({ mode: 'open' }).appendChild(
+              templateContent.cloneNode(true)
+            );
+          }
+
+          connectedCallback() {
+            console.log('Custom element added to page.');
+            const title = this.getAttribute('data-title');
+            console.log('title', title);
+          }
+        }
+      );
+    </script>
+
+    <div>
+      <techradar-technology-details data-title="ArgoCD">
+        <h1 slot="technology-title">ArgoCD</h1>
+        <span slot="technology-description">
+          Argo CD is a declarative, GitOps continuous delivery tool for
+          Kubernetes.
+        </span>
+        <a
+          href="https://argoproj.github.io/argo-cd/"
+          slot="technology-learn-more"
+        >
+          Learn More</a
+        >
+      </techradar-technology-details>
+
+      <techradar-technology-details>
+        <h1 slot="technology-title">Angular</h1>
+        <span slot="technology-description">
+          Angular is a platform for building mobile and desktop web
+          applications.
+        </span>
+      </techradar-technology-details>
+
+      <techradar-technology-details>
+        <h1 slot="technology-title">React</h1>
+        <span slot="technology-description">
+          React is a JavaScript library for building user interfaces.
+        </span>
+      </techradar-technology-details>
+    </div>
+  </body>
+</html>
