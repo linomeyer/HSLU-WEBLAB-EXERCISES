@@ -1,2 +1,1 @@
-// your code here
-// your code here
+console.log(document.body.getAttribute("h1"))
