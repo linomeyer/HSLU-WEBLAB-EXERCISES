@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html data-theme="light">
-  <head>
+<head>
     <link
-      rel="stylesheet"
-      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
-    />
-  </head>
-
-  <body class="container">
-    <main class="grid">
-      <div>
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    >
+</head>
+<body class="container">
+<main class="grid">
+    <techradar-add-technology></techradar-add-technology>
+    <div>
         <h1>Technologies</h1>
-        <div class="technologies"></div>
-      </div>
-    </main>
-    <script src="index.js"></script>
-  </body>
+    </div>
+    <techradar-list-technologies></techradar-list-technologies>
+
+</main>
+<script src="custom-components.js"></script>
+<script src="index.js"></script>
+</body>
 </html>
