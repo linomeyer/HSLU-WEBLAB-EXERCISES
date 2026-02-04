@@ -1,0 +1,36 @@
+{
+  "name": "typescript-jest-seed",
+  "version": "0.0.1",
+  "description": "A simple Node/TypeScript seed with test and watch support.",
+  "main": "src/app.ts",
+  "scripts": {
+    "clean": "rimraf build",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node ./build/app.js",
+    "test": "jest",
+    "predev": "npm run clean",
+    "dev": "concurrently \"npm run tsc-watch\" \"npm run nodemon\"",
+    "prenodemon": "wait-on ./build/app.js",
+    "nodemon": "nodemon --delay 1500ms \"./build/app.js\"",
+    "tsc-watch": "tsc -w",
+    "lint": "tsc --noEmit && eslint \"*/**/*.{js,ts}\" --quiet --fix"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.54.0",
+    "@typescript-eslint/parser": "^8.54.0",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.2",
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.11",
+    "rimraf": "^6.1.2",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.3",
+    "wait-on": "^9.0.3"
+  },
+  "dependencies": {
+    "@types/node": "^25.2.0"
+  }
+}
